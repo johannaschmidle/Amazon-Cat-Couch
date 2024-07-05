@@ -52,7 +52,7 @@ library(sentimentr)
 ```
 
 ```{r}
-couch <- read_csv("/Users/johannaschmidle/Desktop/Data Analyst Projects/Cat Couch/CatCouchReviewsTable.csv",
+couch <- read_csv("/Users/.../CatCouchReviewsTable.csv",
                  col_names = TRUE, 
                  col_types = cols())
 

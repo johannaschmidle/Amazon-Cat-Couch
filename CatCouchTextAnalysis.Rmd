@@ -1,0 +1,146 @@
+---
+title: "Cat Couch Sentiment"
+output: pdf_document
+date: "2024-07-04"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = TRUE,
+	message = FALSE,
+	warning = FALSE
+)
+```
+
+# Data Prep
+```{r}
+library(readr)
+library(dplyr)
+library(kableExtra)
+library(tidyverse)
+library(tidytext)
+library(wordcloud)
+library(RColorBrewer)
+library(ggplot2)
+library(textdata)
+library(sentimentr)
+
+couch <- read_csv("/Users/johannaschmidle/Desktop/Data Analyst Projects/Cat Couch/CatCouchReviewsTable.csv",
+                 col_names = TRUE, 
+                 col_types = cols())
+
+# Edit column names
+couch<-couch %>% 
+  rename(Location=`Review Location`)  %>% 
+  rename(Reviewer=`Reviewer Name`) %>% 
+  rename(Date=`Review Date`) %>% 
+  rename(Text=`Review Text`) %>% 
+  rename(Colour=`Colour Name`) 
+  
+couch %>% glimpse
+```
+## Text Dataset
+
+This is for text analysis focused on the comments column, so I will create a special version of the dataset for this purpose.
+```{r}
+v_stopwords <- get_stopwords() %>% .$word
+numb <- "[[:digit:]]+"
+
+#Unnest Tokens
+couch_txt<-couch %>% #Create couch_txt dataset
+  unnest_tokens(word,Text) #Unnest tokens
+
+couch_txt <- couch_txt %>%
+  filter(!str_detect(word,numb))%>% #Remove numbers
+  filter(!(word %in% v_stopwords))%>% #Remove stop words
+  left_join(get_sentiments("nrc"), by="word") #Add sentiment column
+
+dim_desc(couch_txt)
+```
+
+# Text Analysis
+## Wordcloud
+
+```{r wordcloud, fig.align='center', fig.height = 3.5, fig.width = 3.5}
+pallet <- brewer.pal(15,"Set2") 
+couch_txt %>%
+  count(word,sort=TRUE)%>%
+  with(wordcloud(word,n, colors=pallet, random.order = FALSE, min.freq = 500))
+```
+Disappointed is a surprisingly big one. I will now analyze sentiments and see if this is a true reflection of how a lot of customers felt.
+
+## Sentiment Analysis
+```{r fig1, fig.height = 5, fig.width = 7}
+# TO DO FIX THE FILTER LATER
+
+#choose sentiments I want to see
+senti <- c("positive", "joy","surprise", "negative", "anger", "sadness")
+
+#Sentiment Bar Charts
+couch_txt %>%
+  count(sentiment, word) %>%
+  filter(sentiment %in% senti) %>% 
+  group_by(sentiment) %>% 
+  top_n(10,n) %>% 
+  ungroup() %>% 
+  mutate(word = reorder(word, n)) %>% 
+  ggplot(aes(x=word, y=n, fill = sentiment)) +
+  geom_bar(stat = "identity", show.legend = FALSE) + 
+  guides(x=guide_axis(angle = 45)) + coord_flip() + 
+  facet_wrap(~sentiment, scales = "free") +
+  labs(y = "", x = "",
+       title = "Sentiment analysis of Cat Couch Reviews",
+       subtitle = "Using the NRC Lexicon")
+
+``` 
+
+#
+```{r, fig.align='center', fig.height = 3.5, fig.width = 3.5}
+couch_txt%>%
+  count(sentiment) %>% 
+  filter(sentiment %in% senti) %>% 
+  mutate(sentiment=fct_reorder(sentiment,n)) %>%
+  ggplot() + 
+  geom_bar(aes(x="", y=n,fill=sentiment), stat = "identity") + 
+  coord_polar("y",start=0) + 
+  theme(axis.text.x=element_blank()) + 
+  labs(x="",y="",title="Sentiments",fill="")
+```
+
+```{r}
+couch_summary <- couch_txt %>%
+  filter(!is.na(Colour) & !is.na(sentiment)) %>%
+  group_by(Colour) %>%
+  summarize(
+    mean_sentiment = mean(ifelse(sentiment == "positive", 1, ifelse(sentiment == "negative", -1, 0))),
+    num_positive = sum(sentiment == "positive"),
+    num_negative = sum(sentiment == "negative")
+  )
+
+couch_summary
+```
+
+```{r, fig.align='center', fig.height = 3.5, fig.width = 5}
+couch_txt %>%
+  filter(!is.na(sentiment)) %>%
+  filter(!is.na(Colour)) %>%
+  filter(sentiment %in% c("positive", "negative")) %>%
+  count(Colour, sentiment) %>%
+  ggplot(aes(x = Colour, y = n, fill = sentiment)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Sentiment Distribution by Couch Color",
+       x = "Couch Color",
+       y = "Number of Reviews") +
+  theme_minimal()
+
+couch_txt %>%
+  filter(!is.na(sentiment)) %>%
+  filter(!is.na(Colour)) %>%
+  count(Colour, sentiment) %>%
+  ggplot(aes(x = Colour, y = n, fill = sentiment)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Sentiment Distribution by Couch Color",
+       x = "Couch Color",
+       y = "Number of Reviews") +
+  theme_minimal()
+```

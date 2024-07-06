@@ -5,3 +5,6 @@ Analyzing Amazon reviews from 2023 - 2024 for [cat couch](https://www.amazon.ca/
     <img src="CatCouchDash.png" alt="Tableau Dashboard" width="900">
 </p>
 
+## Motivation
+
+## Summary of Insights

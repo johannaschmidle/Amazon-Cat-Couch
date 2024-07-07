@@ -6,7 +6,7 @@ Analyzing Amazon reviews from 2023 - 2024 for [cat couch](https://www.amazon.ca/
 </p>
 
 ## Motivation
-Gaining insights on amazon product to see how customers feel about it and if I want to purchase the product myself and what version of the product to get.
+Gaining insights on Amazon product to see how customers feel about it and if I want to purchase the product myself and what version of the product to get.
 
 ## Task List
 - Collect Data from Amazon
@@ -21,10 +21,3 @@ Gaining insights on amazon product to see how customers feel about it and if I w
 - Excel
 - Tableau
 - R
-
-## Task List
-- Collect Data from Amazon
-- Add a sentiment column based on Review Text
-- Clean dataset
-- Create Visualization
-- Bonus: EDA + Sentiment Analysis

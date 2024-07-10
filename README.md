@@ -20,7 +20,7 @@ This dataset can be used in various ways, such as natural language processing, s
 **Main Metrics:**
 - **Review rating:** out of 5 stars
 - **Sentiment:** indicates how the customer feels about the product (positive review, negative review, or neutral review)
-- **Number of Reviews:** Total number of reviews
+- **Number of Reviews:** Total number of reviews    
 **Other fields:**
 - Reviewer Name: The username of the person leaving the review
 - Title: The title of the review

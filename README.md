@@ -17,6 +17,7 @@ Gain insights into the reviews of an Amazon product to understand factors that a
 ## Data
 **Source:** Scraped from Amazon, then added a sentiment column in Python. \
 This dataset can be used in various ways, such as natural language processing, sentiment analysis, product recommendations, or market research.
+
 **Main Metrics:**
 - **Review rating:** out of 5 stars
 - **Sentiment:** indicates how the customer feels about the product (positive review, negative review, or neutral review)

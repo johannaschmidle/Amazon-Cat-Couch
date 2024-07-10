@@ -5,8 +5,8 @@ Analyzing Amazon reviews from 2023 - 2024 for [cat couch](https://www.amazon.ca/
 Gain insights into the reviews of an Amazon product to understand factors that affect customer satisfaction. And for fun I can determine if I should purchase the product myself, and which version would be the best choice.
 
 ## Task List
-- Collect Data from Amazon and dd a sentiment column based on the Review Text ([CatCouchScrape.ipynb](https://github.com/johannaschmidle/Amazon-Cat-Couch/blob/main/CatCouchScrape.ipynb))
-- Clean dataset (Cleaned table: [CatCouchReviewTable.csv](https://github.com/johannaschmidle/Amazon-Cat-Couch/blob/main/CatCouchReviewTable.csv))
+- Collect Data from Amazon + add sentiment column based on review text ([CatCouchScrape.ipynb](https://github.com/johannaschmidle/Amazon-Cat-Couch/blob/main/CatCouchScrape.ipynb))
+- Clean dataset (_Cleaned table:_ [CatCouchReviewTable.csv](https://github.com/johannaschmidle/Amazon-Cat-Couch/blob/main/CatCouchReviewTable.csv))
 - Create Visualization ([Tableau Dashboard](https://public.tableau.com/app/profile/johanna.schmidle/viz/CatCouchDash/Dashboard1))
 - Bonus: EDA + Sentiment Analysis ([CatCouchPdf.pdf](https://github.com/johannaschmidle/Amazon-Cat-Couch/blob/main/CatCouchPdf.pdf))
 

@@ -5,10 +5,10 @@ Analyzing Amazon reviews from 2023 - 2024 for [cat couch](https://www.amazon.ca/
 Gain insights into the reviews of an Amazon product to understand factors that affect customer satisfaction. And for fun I can determine if I should purchase the product myself, and which version would be the best choice.
 
 ## Task List
-- Collect Data from Amazon + add sentiment column based on review text ([CatCouchScrape.ipynb](https://github.com/johannaschmidle/Amazon-Cat-Couch/blob/main/CatCouchScrape.ipynb))
-- Clean dataset (_Cleaned table:_ [CatCouchReviewTable.csv](https://github.com/johannaschmidle/Amazon-Cat-Couch/blob/main/CatCouchReviewTable.csv))
-- Create Visualization ([Tableau Dashboard](https://public.tableau.com/app/profile/johanna.schmidle/viz/CatCouchDash/Dashboard1))
-- Bonus: EDA + Sentiment Analysis ([CatCouchPdf.pdf](https://github.com/johannaschmidle/Amazon-Cat-Couch/blob/main/CatCouchPdf.pdf))
+1. Collect Data from Amazon + add sentiment column based on review text ([CatCouchScrape.ipynb](https://github.com/johannaschmidle/Amazon-Cat-Couch/blob/main/CatCouchScrape.ipynb))
+2. Clean dataset (_Cleaned table:_ [CatCouchReviewTable.csv](https://github.com/johannaschmidle/Amazon-Cat-Couch/blob/main/CatCouchReviewTable.csv))
+3. Create Visualization ([Tableau Dashboard](https://public.tableau.com/app/profile/johanna.schmidle/viz/CatCouchDash/Dashboard1))
+4. Bonus: EDA + Sentiment Analysis ([CatCouchPdf.pdf](https://github.com/johannaschmidle/Amazon-Cat-Couch/blob/main/CatCouchPdf.pdf))
 
 <p align="center">
     <img src="CatCouchDash.png" alt="Tableau Dashboard" width="900">
@@ -35,7 +35,6 @@ This dataset can be used in various ways, such as natural language processing, s
 - Ratings predominantly cluster around 4.5 stars, but a significant number of ratings are also around 1 star.
 - The green couch has the highest average rating at approximately 4.7 stars. The blue and yellow couches have the lowest average ratings at 3.6 stars.
 - Mexico and Canada have high average ratings (5.0 stars and 4.1 stars, respectively), while the United States has a lower average rating (3.6 stars). However, it's important to note that Mexico only has one review, so this may not accurately reflect overall customer satisfaction.
-
 #### Sentiment
 - Most reviews are positive, followed by neutral, and then negative.
 - The blue couch has the highest percentage of negative reviews compared to total reviews for that color.

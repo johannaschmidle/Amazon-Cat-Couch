@@ -1,5 +1,8 @@
 # Amazon Cat Couch Reviews (2023 - 2024)
 Analyzing Amazon reviews from 2023 - 2024 for [cat couch](https://www.amazon.ca/Washable-Medium-Durable-Non-Slip-26%C3%9719%C3%9713/dp/B0C5DMLPNC/ref=cm_cr_arp_d_product_top?ie=UTF8). Interactive Tableau dashboard can be found [here](https://public.tableau.com/app/profile/johanna.schmidle/viz/CatCouchDash/Dashboard1).
+<p align="center">
+    <img src="CatCouchDash.png" alt="Tableau Dashboard" width="700">
+</p>
 
 ## Motivation
 Gain insights into the reviews of an Amazon product to understand factors that affect customer satisfaction. And for fun I can determine if I should purchase the product myself, and which version would be the best choice.
@@ -9,10 +12,6 @@ Gain insights into the reviews of an Amazon product to understand factors that a
 2. Clean dataset (_Cleaned table:_ [CatCouchReviewTable.csv](https://github.com/johannaschmidle/Amazon-Cat-Couch/blob/main/CatCouchReviewTable.csv))
 3. Create Visualization ([Tableau Dashboard](https://public.tableau.com/app/profile/johanna.schmidle/viz/CatCouchDash/Dashboard1))
 4. Bonus: EDA + Sentiment Analysis ([CatCouchPdf.pdf](https://github.com/johannaschmidle/Amazon-Cat-Couch/blob/main/CatCouchPdf.pdf))
-
-<p align="center">
-    <img src="CatCouchDash.png" alt="Tableau Dashboard" width="900">
-</p>
 
 ## Data
 **Source:** Scraped from Amazon, then added a sentiment column in Python. \

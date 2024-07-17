@@ -1,5 +1,5 @@
 # Amazon Cat Couch Reviews (2023 - 2024)
-Analyzing Amazon reviews from 2023 - 2024 for [cat couch](https://www.amazon.ca/Washable-Medium-Durable-Non-Slip-26%C3%9719%C3%9713/dp/B0C5DMLPNC/ref=cm_cr_arp_d_product_top?ie=UTF8). Interactive Tableau dashboard can be found [here](https://public.tableau.com/app/profile/johanna.schmidle/viz/CatCouchDash/Dashboard1).
+Analyzing Amazon reviews from 2023 - 2024 for [cat couch](https://www.amazon.ca/Washable-Medium-Durable-Non-Slip-26%C3%9719%C3%9713/dp/B0C5DMLPNC/ref=cm_cr_arp_d_product_top?ie=UTF8). Interactive Tableau dashboard can be found [here](https://public.tableau.com/app/profile/johanna.schmidle/viz/AmazonCatCouch/Dashboard1).
 <p align="center">
     <img src="CatCouchDash.png" alt="Tableau Dashboard" width="700">
 </p>
@@ -10,7 +10,7 @@ Gain insights into the reviews of an Amazon product to understand factors that a
 ## Task List
 1. Collect Data from Amazon + add sentiment column based on review text ([CatCouchScrape.ipynb](https://github.com/johannaschmidle/Amazon-Cat-Couch/blob/main/CatCouchScrape.ipynb))
 2. Clean dataset (_Cleaned table:_ [CatCouchReviewTable.csv](https://github.com/johannaschmidle/Amazon-Cat-Couch/blob/main/CatCouchReviewTable.csv))
-3. Create Visualization ([Tableau Dashboard](https://public.tableau.com/app/profile/johanna.schmidle/viz/CatCouchDash/Dashboard1))
+3. Create Visualization ([Tableau Dashboard](https://public.tableau.com/app/profile/johanna.schmidle/viz/AmazonCatCouch/Dashboard1))
 4. Bonus: EDA + Sentiment Analysis ([CatCouchPdf.pdf](https://github.com/johannaschmidle/Amazon-Cat-Couch/blob/main/CatCouchPdf.pdf))
 
 ## Data
@@ -45,7 +45,7 @@ This dataset can be used in various ways, such as natural language processing, s
 - Neutral reviews peaked in December 2023, decreased, and then increased again in April 2024.
 - Negative reviews remained relatively low but began to increase just before April 2024.
 #### Number of Reviews
-- Review counts remained low until November 2023 (when ratings hit their lowest point), then remained high until March 2024. After that, the count decreased until it started increasing again after April 2024.
+- Review counts remained low until November 2023 (when ratings hit their lowest point), then stayed high until March 2024. After that, the count decreased until it started increasing again after April 2024.
 - Canada has the most reviews, while Mexico has the fewest.
 - The green couch has the most reviews, and the black couch has the fewest. 
 #### Overall
